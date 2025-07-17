@@ -139,7 +139,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 1 # 소셜 로그인 구현을 위해 ID 부여해둠
+SITE_ID = 2 # 소셜 로그인 구현을 위해 ID 부여해둠
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/' #로그인 리다이렉트 추가
