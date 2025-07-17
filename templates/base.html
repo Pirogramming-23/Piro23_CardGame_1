@@ -1,0 +1,37 @@
+{% load static %}
+{% load socialaccount %}
+{% load account %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/root.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleKDS.css' %}">
+    <title>{% block head_title %}Piro Card Game{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper-kds">
+        <nav class="headnav-kds">
+            <div class="left-nav-kds">
+                <a href="/">Pirogrammer Card Game</a>
+            </div>
+            <div class="right-nav-kds">
+                {% if user.is_authenticated %}
+                    <a href="/">게임하기</a> <!--게임 시작 구현되면 여기에 링크 넣어주세요!!-->
+                    <a href="/">랭킹보기</a> <!--랭킹 보기 구현되면 여기에 링크 넣어주세요!!-->
+                    <a href="{% url 'account_logout' %}">로그아웃</a>
+                {% else %}
+                    <a href="{% url 'account_login' %}">로그인</a>
+                    <a href="{% url 'account_signup' %}">회원가입</a>
+                {% endif %}
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="footer-kds">
+        <span class="our-identity-kds">피로그래밍 22기 카드게임 세션 1조</span>
+    </footer>
+</body>
+</html>
