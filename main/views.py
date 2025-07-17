@@ -33,8 +33,9 @@ def start_game_view(request):
 def game_list_view(request):
     user = request.user
     my_attacks_qs = Game.objects.filter(attacker=user).order_by('-created_at')  # type: ignore
-    my_defenses = Game.objects.filter(defender=user).order_by('-created_at')  # type: ignore
+    my_defenses_qs = Game.objects.filter(defender=user).order_by('-created_at')  # type: ignore
     my_attacks = [(game, game.can_counter(user)) for game in my_attacks_qs]
+    my_defenses = [(game, game.can_counter(user)) for game in my_defenses_qs]
     context = {
         'my_attacks': my_attacks,
         'my_defenses': my_defenses,
