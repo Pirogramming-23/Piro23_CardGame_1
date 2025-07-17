@@ -151,15 +151,28 @@ ACCOUNT_LOGIN_METHODS = {'email', 'username'}  # 이메일 또는 유저네임�
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #소셜 로그인 제공자
+from decouple import config
+
 SOCIALACCOUNT_PROVIDERS = {
-    'naver': {
+    'google': {
         'APP': {
-            'client_id': 'jGI5oXophSxm7xJS8_vT',
-            'secret': 'sbMBAR2yjO',
+            'client_id': config('SOCIAL_GOOGLE_CLIENT_ID'),
+            'secret': config('SOCIAL_GOOGLE_SECRET'),
             'key': ''
-        },
-        'AUTH_PARAMS': {
-            'auth_type': 'reauthenticate'
         }
     },
+    'kakao': {
+        'APP': {
+            'client_id': config('SOCIAL_KAKAO_CLIENT_ID'),
+            'secret': '',
+            'key': ''
+        }
+    },
+    'naver': {
+        'APP': {
+            'client_id': config('SOCIAL_NAVER_CLIENT_ID'),
+            'secret': config('SOCIAL_NAVER_SECRET'),
+            'key': ''
+        }
+    }
 }
