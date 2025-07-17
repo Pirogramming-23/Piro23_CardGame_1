@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% load account %}
+
+{% block head_title %}로그아웃{% endblock %}
+
+{% block content %}
+<div class="container-kds">
+    <div class="logout-form-kds">
+        <h2>로그아웃 하시겠습니까?</h2>
+
+        <div class="logout-bottom-kds">
+            <form method="post" action="{% url 'account_logout' %}" id="logout-btn-kds">
+                {% csrf_token %}
+                <button type="submit">로그아웃</button>
+            </form>
+            <p><a href="/">메인화면으로</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

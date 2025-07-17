@@ -1,2 +1,3 @@
-# Piro22_CardGame_1
+# Piro23_CardGame_1
+
 피로그래머 카드게임 만들기 1조 레포지토리 입니다!!
