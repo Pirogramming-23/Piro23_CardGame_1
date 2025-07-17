@@ -1,51 +1,103 @@
+body {
+    background: linear-gradient(to bottom, #f09878, #4a2e5d);
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.detail-container-kds {
+.container-lsy {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-    background-color: #F9A825; /* 주황색 배경 */
-    min-height: 80vh;
-}
-
-.detail-box-kds {
-    background-color: #4A148C; /* 보라색 박스 */
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
     width: 100%;
-    max-width: 450px;
+    height: 100%;
+}
+
+/* 카드 디자인 */
+.card-lsy {
+    background-color: #4a2e5d; /* 스크린샷의 보라색 배경 */
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.detail-box-kds h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+.card-body-lsy {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.detail-box-kds p {
-    text-align: left;
-    margin: 10px 0;
+.card-title-lsy {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.divider-lsy {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+}
+
+/* 텍스트 스타일 */
+.status-text-lsy,
+.card-info-lsy,
+.result-title-lsy,
+.result-summary-lsy {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+.result-details-lsy p {
     font-size: 1.1rem;
-    border-bottom: 1px solid #7B1FA2;
-    padding-bottom: 10px;
+    margin: 5px 0;
+    line-height: 1.5;
 }
 
-.detail-box-kds .result-text {
-    font-weight: bold;
-    color: #FDD835; /* 노란색 텍스트 */
-}
-
-.detail-box-kds .back-button-kds {
-    background-color: #FDD835;
-    color: #4A148C;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+/* 버튼 그룹 */
+.button-group-lsy {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 20px;
+}
+
+/* 공통 버튼 스타일 */
+.btn-lsy {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-lsy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 개별 버튼 색상 */
+.btn-cancel-lsy {
+    background-color: #e74c3c; /* 빨간색 계열 */
+}
+
+.btn-counter-lsy {
+    background-color: #f1c40f; /* 노란색 계열 */
+    color: #333;
+}
+
+.btn-list-lsy {
+    background-color: #95a5a6; /* 회색 계열 */
 }

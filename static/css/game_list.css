@@ -8,7 +8,7 @@
 }
 
 .game-history-kds {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.6);
     border-radius: 20px;
     padding: 30px 40px;
     min-width: 270px;
@@ -19,7 +19,7 @@
 }
 
 .game-history-title-kds {
-    color: var(--orange);
+    color: black;
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -40,7 +40,7 @@
 }
 
 .game-history-item-kds {
-    color: var(--orange);
+    color: black;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -62,7 +62,7 @@
 }
 
 .game-detail-kds {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.6);
     border-radius: 20px;
     padding: 30px 40px;
     min-width: 350px;
