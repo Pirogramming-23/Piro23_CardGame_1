@@ -47,6 +47,7 @@
     display: inline-block !important;
     opacity: 1 !important;
     position: static !important;
+    cursor: pointer;
 }
 
 .defender-select-kds {
