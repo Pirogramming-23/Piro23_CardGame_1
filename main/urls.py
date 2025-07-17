@@ -1,8 +1,9 @@
 # urls.py
 from django.urls import path
-from . import views
+from .views import home, start_game_view, game_list
 
 urlpatterns = [
-    path('start_game/', views.start_game_view, name='start_game'),
-    path('game_list/', views.game_list_view, name='game_list'),
+    path('', home, name='home'),
+    path('start_game/', start_game_view, name='start_game'),
+    path('game-list/', game_list, name='game_list'),
 ]

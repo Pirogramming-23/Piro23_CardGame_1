@@ -3,6 +3,8 @@ import random
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Game, User
+from django.contrib.auth.decorators import login_required
+
 
 @login_required
 def start_game_view(request):
@@ -38,3 +40,9 @@ def game_list_view(request):
         'my_defenses': my_defenses,
     }
     return render(request, 'game_list.html', context)
+
+def game_list(request):
+    return render(request, 'game_list.html')
+
+def home(request):
+    return render(request, 'home.html')
