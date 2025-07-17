@@ -166,6 +166,9 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': config('SOCIAL_KAKAO_CLIENT_ID'),
             'secret': '',
             'key': ''
+        },
+        'AUTH_PARAMS': {
+            'prompt': 'login'  # ⭐️ 매번 로그인 강제!
         }
     },
     'naver': {
@@ -173,6 +176,9 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': config('SOCIAL_NAVER_CLIENT_ID'),
             'secret': config('SOCIAL_NAVER_SECRET'),
             'key': ''
+        },
+        'AUTH_PARAMS': {
+            'auth_type': 'reauthenticate'
         }
     }
 }
