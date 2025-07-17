@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // 취소 버튼 클릭
+// 취소 버튼 클릭
     document.querySelectorAll('.cancel-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
             const gameId = this.dataset.gameId;
@@ -27,6 +26,14 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.addEventListener('click', function () {
             // counter_attack.html로 이동
             window.location.href = '/main/templates/counter_attack.html';
+        });
+    });
+
+    // 게임정보 버튼 클릭 시 상세 페이지로 이동
+    document.querySelectorAll('.game-info-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const gameId = this.dataset.gameId;
+            window.location.href = `/game_detail/${gameId}/`;
         });
     });
 
