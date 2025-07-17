@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container-kds">
+    <div class="detail-box-kds">
+        <h3>{{ game.id }} - {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
+
+        {% if game.win_condition %}
+            <p>
+                {% if game.win_condition == 'BIG' %}
+                    숫자가 <span class="result-text">큰</span> 사람이 이깁니다.
+                {% else %}
+                    숫자가 <span class="result-text">작은</span> 사람이 이깁니다.
+                {% endif %}
+            </p>
+        {% endif %}
+        
+        <p>user1 : {{ game.attacker_card }}</p>
+        <p>user2 : {% if game.defender_card %}{{ game.defender_card }}{% else %}?{% endif %}</p>
+        
+        {% if game.status == 'COMPLETED' %}
+            <p>결과 : <span class="result-text">{{ game.get_result_summary }}</span></p>
+            <p>점수 : 
+                {% if game.winner == request.user and game.winner.card %}
+                    +{{ game.winner.card }}
+                {% elif game.loser == request.user and game.loser.card %}
+                    -{{ game.loser.card }}
+                {% else %}
+                    0
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <a href="{% url 'game_list' %}" class="back-button-kds">전적 목록</a>
+    </div>
+</div>
+{% endblock %}

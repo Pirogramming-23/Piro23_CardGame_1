@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Game, User
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponseForbidden
 
 @login_required
 def start_game_view(request):
@@ -92,3 +92,16 @@ def counter_attack_view(request, game_id):
         'game': game,
         'card_choices': card_choices,
     })
+
+@login_required
+def game_detail_view(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+
+    
+    if request.user != game.attacker and request.user != game.defender:
+        return HttpResponseForbidden("이 게임에 접근할 권한이 없습니다.")
+
+    context = {
+        'game': game
+    }
+    return render(request, 'game_detail.html', context)
