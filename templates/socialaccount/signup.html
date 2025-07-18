@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block head_title %}
+    {% if account.provider == "kakao" %}
+        Kakao 회원가입
+    {% elif account.provider == "google" %}
+        Google 회원가입
+    {% elif account.provider == "naver" %}
+        Naver 회원가입
+    {% else %}
+        소셜 회원가입
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container-kds">
+    {% if account.provider == "kakao" %}
+        <div class="kakao-signup-form-kds">
+            <h2><span class="kakao-name-kds">{{ account.provider|title }}</span> 계정으로 회원가입</h2>
+            <p>
+                {{ account.provider|title }} 계정을 사용하여 <span style="font-weight: bolder;">Pirogrammer Card Game</span> 으로 로그인하려 합니다.<br>
+                마지막으로 아래 항목들을 작성해주세요:
+            </p>
+
+            <form method="post" action="{% url 'socialaccount_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="kakao-signup-btn-kds">회원가입</button>
+            </form>
+        </div>
+    {% elif account.provider == "google" %}
+        <div class="google-signup-form-kds">
+            <h2><span class="google-name-kds">{{ account.provider|title }}</span> 계정으로 회원가입</h2>
+            <p>
+                {{ account.provider|title }} 계정을 사용하여 <span style="font-weight: bolder;">Pirogrammer Card Game</span> 으로 로그인하려 합니다.<br>
+                마지막으로 아래 항목들을 작성해주세요:
+            </p>
+
+            <form method="post" action="{% url 'socialaccount_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="google-signup-btn-kds">회원가입</button>
+            </form>
+        </div>
+    {% elif account.provider == "naver" %}
+        <div class="naver-signup-form-kds">
+            <h2><span class="naver-name-kds">{{ account.provider|title }}</span> 계정으로 회원가입</h2>
+            <p>
+                {{ account.provider|title }} 계정을 사용하여 <span style="font-weight: bolder;">Pirogrammer Card Game</span> 으로 로그인하려 합니다.<br>
+                마지막으로 아래 항목들을 작성해주세요:
+            </p>
+
+            <form method="post" action="{% url 'socialaccount_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="naver-signup-btn-kds">회원가입</button>
+            </form>
+        </div>
+    {% else %}
+        소셜 회원가입
+    {% endif %}
+</div>
+{% endblock %}
