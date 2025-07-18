@@ -6,6 +6,32 @@
 {% block head_title %}로그인{% endblock %}
 
 {% block content %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const usernameInput = document.getElementById('id_login') || document.getElementById('id_username');
+        const rememberCheckbox = document.getElementById('id_remember');
+
+        // localStorage에서 아이디 불러오기
+        const savedId = localStorage.getItem('saved_id');
+        if (savedId && usernameInput && rememberCheckbox) {
+            usernameInput.value = savedId;
+            rememberCheckbox.checked = true;
+        }
+
+        // 폼 제출 시 저장 여부 처리
+        const loginForm = document.getElementById('login-form-inner-kds');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function () {
+                if (rememberCheckbox && rememberCheckbox.checked && usernameInput) {
+                    localStorage.setItem('saved_id', usernameInput.value);
+                } else {
+                    localStorage.removeItem('saved_id');
+                }
+            });
+        }
+    });
+</script>
+
 <div class="container-kds">
     <div class="login-form-kds">
         <h2>로그인</h2>

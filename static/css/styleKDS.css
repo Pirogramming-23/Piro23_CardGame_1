@@ -337,6 +337,11 @@ body {
     transform: scale(1.1);
 }
 
+
+
+
+
+
 .kakao-login-form-kds {
     display: flex;
     flex-flow: column;
@@ -441,4 +446,235 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+
+
+
+
+.kakao-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: yellow;
+    border: brown 4px solid;
+    min-height: 400px;
+}
+
+.kakao-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.kakao-name-kds {
+    color: brown;
+}
+
+.kakao-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#kakao-signup-btn-kds {
+    color: white;
+    background-color: brown;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#kakao-signup-btn-kds:hover {
+    background-color: rgb(110, 28, 28);
+    transform: scale(1.1);
+}
+
+.kakao-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}
+
+.kakao-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.kakao-signup-form-kds > form label {
+    color: black;
+}
+
+#id_email_error {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.naver-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: #03c75a 5px solid;
+    min-height: 400px;
+}
+
+.naver-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.naver-name-kds {
+    color: #03c75a;
+}
+
+.naver-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#naver-signup-btn-kds {
+    color: white;
+    background-color: #03c75a;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#naver-signup-btn-kds:hover {
+    background-color: #17b75e;
+    transform: scale(1.1);
+}
+
+.naver-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.naver-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.naver-signup-form-kds > form label {
+    color: black;
+}
+
+
+
+
+
+
+
+.google-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: blue 5px solid;
+    min-height: 400px;
+}
+
+.google-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.google-name-kds {
+    color: blue;
+}
+
+.google-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#google-signup-btn-kds {
+    color: white;
+    background-color: blue;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#google-signup-btn-kds:hover {
+    background-color: navy;
+    transform: scale(1.1);
+}
+
+.google-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.google-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.google-signup-form-kds > form label {
+    color: black;
+}
+
+.errorlist {
+    color: black;
+    font-weight: bold;
 }
