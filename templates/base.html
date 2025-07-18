@@ -7,11 +7,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/root.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styleKDS.css' %}">
     <link rel="stylesheet" href="{% static 'css/start_game.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
     <link rel="stylesheet" href="{% static 'css/game_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleKDS.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
+
      {% block extra_head %}{% endblock %}
     <title>{% block head_title %}Piro Card Game{% endblock %}</title>
 </head>
@@ -23,8 +25,8 @@
             </div>
             <div class="right-nav-kds">
                 {% if user.is_authenticated %}
-                    <a href="/">게임하기</a> <!--게임 시작 구현되면 여기에 링크 넣어주세요!!-->
-                    <a href="{% url 'ranking' %}">랭킹보기</a> <!--랭킹 보기 구현되면 여기에 링크 넣어주세요!!-->
+                    <a href="{% url 'start_game' %}">게임하기</a> <!--게임 시작 구현되면 여기에 링크 넣어주세요!!-->
+                    <a href="/">랭킹보기</a> <!--랭킹 보기 구현되면 여기에 링크 넣어주세요!!-->
                     <a href="{% url 'account_logout' %}">로그아웃</a>
                 {% else %}
                     <a href="{% url 'account_login' %}">로그인</a>
