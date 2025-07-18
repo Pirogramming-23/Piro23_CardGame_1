@@ -13,4 +13,8 @@ urlpatterns = [
     path('game/<int:game_id>/', game_detail_view, name='game_detail'),
     # [추가] 게임 취소 URL
     path('game/<int:game_id>/cancel/', cancel_game_view, name='cancel_game'),
+    
+    #랭킹 확인 URL
+    path('ranking/', ranking_view, name='ranking'),
+
 ]

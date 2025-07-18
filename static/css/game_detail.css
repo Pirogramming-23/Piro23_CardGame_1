@@ -4,8 +4,7 @@ body {
     color: #ffffff;
     min-height: 100vh;
     margin: 0;
-    /*body를 flex로 줘서 배경 같은 부분들이 깨진채 나온 것 같아요! 일단 수정해뒀습니다!*/
-    /* display: flex; */   
+    /*display: flex;*/  
     align-items: center;
     justify-content: center;
 }
