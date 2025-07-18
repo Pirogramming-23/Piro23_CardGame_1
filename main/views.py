@@ -3,9 +3,11 @@ import random
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Game, User
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.contrib.auth import get_user_model
 from django.db import transaction
-
+from django.db.models import Q 
 
 @login_required
 def start_game_view(request):
@@ -33,7 +35,7 @@ def start_game_view(request):
 @login_required
 def game_list(request):
     user = request.user
-
+    
     # --- 디버깅 코드 시작 ---
     print("\n" + "="*50)
     print(f"DEBUG: game_list 뷰 실행 확인")

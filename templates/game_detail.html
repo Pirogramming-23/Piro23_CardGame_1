@@ -46,16 +46,48 @@
                 </div>
 
             {% else %}
-                <!-- 종료된 게임 (기존과 동일) -->
-                <h5 class="result-title-lsy">게임 결과</h5>
-                <div class="result-details-lsy">
-                    <p><b>{{ game.attacker.username }}</b> 낸 카드: {{ game.attacker_card }} (점수: {{ game.attacker_score_change }})</p>
-                    <p><b>{{ game.defender.username }}</b> 낸 카드: {{ game.defender_card }} (점수: {{ game.defender_score_change }})</p>
-                </div>
-                <p class="result-summary-lsy">{{ game.get_result_summary }}</p>
+                <!-- fix 김하윤 : 종료된 게임 기능 완성 -->
+                <h3 class="card-title-lsy">{{ game.id }} - {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
 
-                <div class="button-group-lsy">
-                    <a href="{% url 'game_list' %}" class="btn-lsy btn-list-lsy">전체 목록</a>
+                {% if game.win_condition %}
+                    <p class="card-info-lsy" style="text-align: center; border: none;">
+                        {% if game.win_condition == 'BIG' %}
+                            숫자가 큰 사람이 이깁니다.
+                        {% else %}
+                            숫자가 작은 사람이 이깁니다.
+                        {% endif %}
+                    </p>
+                {% endif %}
+                
+                <hr class="divider-lsy">
+
+                <p class="card-info-lsy">{{ game.attacker.username }} : {{ game.attacker_card }}</p>
+                <p class="card-info-lsy">{{ game.defender.username }} : {{ game.defender_card }}</p>
+
+                <hr class="divider-lsy">
+
+                <p class="card-info-lsy">결과 :
+                    {% if game.is_draw %}
+                        무승부
+                    {% elif game.winner == user %}
+                        승리
+                    {% else %}
+                        패배
+                    {% endif %}
+                </p>
+                
+                <p class="card-info-lsy">점수 :
+                    {% if game.is_draw %}
+                        0
+                    {% elif user == game.attacker %}
+                        {{ game.attacker_score_change }}
+                    {% else %}
+                        {{ game.defender_score_change }}
+                    {% endif %}
+                </p>
+
+                <div class="button-group-lsy" style="margin-top: 20px;">
+                    <a href="{% url 'game_list' %}" class="btn-lsy btn-list-lsy">전적 목록</a>
                 </div>
             {% endif %}
 
