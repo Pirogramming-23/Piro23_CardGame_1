@@ -12,7 +12,7 @@
         <div class="card-body-lsy">
 
             <!-- 게임 참여자 -->
-            <h3 class="card-title-lsy">{{ game.attacker.username }} VS {{ game.defender.username }}</h3>
+            <h3 class="card-title-lsy">{{ game.id }} - {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
 
             <hr class="divider-lsy">
 
@@ -47,8 +47,6 @@
 
             {% else %}
                 <!-- fix 김하윤 : 종료된 게임 기능 완성 -->
-                <h3 class="card-title-lsy">{{ game.id }} - {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
-
                 {% if game.win_condition %}
                     <p class="card-info-lsy" style="text-align: center; border: none;">
                         {% if game.win_condition == 'BIG' %}
@@ -59,7 +57,6 @@
                     </p>
                 {% endif %}
                 
-                <hr class="divider-lsy">
 
                 <p class="card-info-lsy">{{ game.attacker.username }} : {{ game.attacker_card }}</p>
                 <p class="card-info-lsy">{{ game.defender.username }} : {{ game.defender_card }}</p>
