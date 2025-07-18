@@ -56,7 +56,6 @@ a {
 
 a:visited {
   text-decoration: none;
-  color: inherit;
 }
 
 input[type='number']::-webkit-inner-spin-button,
