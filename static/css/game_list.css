@@ -5,6 +5,8 @@
     align-items: flex-start;
     gap: 60px;
     margin-top: 80px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .game-history-kds {
