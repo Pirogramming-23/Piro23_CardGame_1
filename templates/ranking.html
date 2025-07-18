@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}랭킹 보기 | Piro Card Game{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-lsy">
+  <div class="card-lsy">
+    <div class="card-body-lsy ranking-body-sje">
+      <h3 class="card-title-lsy">Piro 명예의 전당</h3>
+      <hr class="divider-lsy">
+
+      <div class="ranking-bar-container-sje">
+        {% for user in top_users %}
+          <div class="ranking-bar-sje" style="height: {{ user.bar_height }}px;">
+            <span class="rank-number-sje">{{ forloop.counter }}</span>
+            <div class="user-label-sje">
+              <span class="username-sje">{{ user.username }}</span>
+              <span class="score-sje">{{ user.total_score }}</span>
+            </div>
+          </div>
+        {% empty %}
+          <p>랭킹 정보가 없습니다.</p>
+        {% endfor %}
+      </div>
+
+      <div style="margin-top: 30px;">
+        <a href="{% url 'game_list' %}" class="btn-lsy btn-counter-lsy back-btn-sje">전체목록</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

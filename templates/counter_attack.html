@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}반격하기 | Piro Card Game{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-lsy">
+  <div class="card-lsy">
+    <div class="card-body-lsy counter-body-sje">
+
+      {% if game.defender_card %}
+        <div class="result-details-lsy counter-result-sje">
+          <h3 class="card-title-lsy">{{ game.attacker_card }} – {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
+          <p class="card-info-lsy">숫자가 작은 사람이 이깁니다.</p>
+          <hr class="divider-lsy">
+
+          <p class="card-info-lsy">{{ game.attacker.username }}: {{ game.attacker_card }}</p>
+          <p class="card-info-lsy">{{ game.defender.username }}: {{ game.defender_card }}</p>
+          <p class="card-info-lsy">
+            결과:
+            {% if game.attacker_card == game.defender_card %}
+              👑 무승부 👑
+            {% elif game.winner == game.defender %}
+              👑 승리 👑
+            {% else %}
+              패배
+            {% endif %}
+          </p>
+          <p class="card-info-lsy">점수 {{ game.defender_score_change }}</p>
+        </div>
+        <div class="button-group-lsy">
+          <a href="{% url 'game_list' %}" class="btn-lsy btn-counter-lsy back-btn-sje">전체목록</a>
+        </div>
+      {% else %}
+        <h3 class="card-title-lsy">반격할 카드 :</h3>
+        <hr class="divider-lsy">
+        <form method="post" class="counter-form-lsy">
+          {% csrf_token %}
+          <div class="card-list-lsy">
+            {% for card in card_choices %}
+              <label class="card-radio-lsy card-radio-sje">
+                <input type="radio" name="selected_card" value="{{ card }}" required>
+                <span class="card-value-sje">{{ card }}</span>
+              </label>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn-lsy btn-counter-lsy counter-btn-sje">CounterAttack</button>
+        </form>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+

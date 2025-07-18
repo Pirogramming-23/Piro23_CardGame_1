@@ -20,7 +20,10 @@ def start_game_view(request):
             defender=defender,
             attacker_card=selected_card
         )
+        # 반격 후 결과 페이지 출력되게 수정
         return redirect('game_list')
+
+
 
     # GET 요청: 카드 5개 랜덤 생성 (1~10 중)
     card_choices = random.sample(range(1, 11), 5)
@@ -121,7 +124,7 @@ def counter_attack_view(request, game_id):
             print(f"Error during counter attack: {e}")
             return redirect('game_list')
 
-        return redirect('game_list')
+        return render(request, 'counter_attack.html', {'game': game})
 
     card_choices = random.sample(range(1, 11), 5)
     return render(request, 'counter_attack.html', {
@@ -155,3 +158,11 @@ def cancel_game_view(request, game_id):
         game.is_deleted_by_attacker = True
         game.save()
     return redirect('game_list')
+
+# 랭킹 확인 뷰
+@login_required
+def ranking_view(request):
+    users = User.objects.order_by('-total_score')[:3]
+    for user in users:
+        user.bar_height = 80 + max(user.total_score, 0)  # 최소 80 보장
+    return render(request, 'ranking.html', {'top_users': users})
