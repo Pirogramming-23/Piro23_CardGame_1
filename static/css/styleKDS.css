@@ -47,6 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 100vh;
 }
 
 .logout-form-kds {
@@ -145,7 +146,11 @@ body {
 }
 
 .helptext > a {
-    color: var(--purple);
+    color: black;
+    text-decoration: none;
+}
+
+.helptext > a:hover {
     text-decoration: underline;
 }
 
@@ -200,6 +205,7 @@ body {
     align-items: center;
     font-size: var(--font-md);
     font-weight: bold;
+    color: black;
 }
 
 .social-login-container-kds > h3::after {
@@ -211,8 +217,16 @@ body {
 }
 
 .social-login-container-kds > a {
+    text-decoration: none;
+    color: black;
+}
+
+.social-login-container-kds > a:visited {
+    color: black
+}
+
+.social-login-container-kds > a:hover {
     text-decoration: underline;
-    color: var(--purple);
 }
 
 .home-container-kds {
@@ -259,4 +273,172 @@ body {
     color: var(--orange);
     font-size: var(--font-lg);
     font-weight: bold;
+}
+
+#socialaccount-login-next {
+    color: var(--purple);
+    background-color: var(--orange);
+    font-size: var(--font-md);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.google-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: blue 4px solid;
+    min-height: 400px;
+}
+
+.google-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.google-name-kds {
+    color: blue;
+}
+
+.google-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#google-next-btn-kds {
+    color: white;
+    background-color: blue;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#google-next-btn-kds:hover {
+    color: white;
+    background-color: navy;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+.kakao-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: yellow;
+    border: brown 4px solid;
+    min-height: 400px;
+}
+
+.kakao-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.kakao-name-kds {
+    color: brown;
+}
+
+.kakao-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#kakao-next-btn-kds {
+    color: white;
+    background-color: brown;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#kakao-next-btn-kds:hover {
+    background-color: rgb(110, 28, 28);
+    transform: scale(1.1);
+}
+
+
+
+
+
+.naver-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: #03c75a 4px solid;
+    min-height: 400px;
+}
+
+.naver-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #03c75a;
+    color: #03c75a;
+}
+
+.naver-name-kds {
+    color: #03c75a;
+}
+
+.naver-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#naver-next-btn-kds {
+    color: white;
+    background-color: #03c75a;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#naver-next-btn-kds:hover {
+    background-color: #17b75e;
+    transform: scale(1.1);
+}
+
+.center-align-wrapper-kds {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

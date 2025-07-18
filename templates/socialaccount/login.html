@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load socialaccount %}
+
+{% block head_title %}소셜 로그인{% endblock %}
+
+{% block content %}
+<div class="container-kds">
+    <div class="center-align-wrapper-kds">
+        {% if provider.name == "Google" %}
+            <div class="google-login-form-kds">
+                <h2><span class="google-name-kds">{{ provider.name }}</span> 을 통한 로그인</h2>
+                <p>소셜 {{ provider.name }} 계정을 사용하여 로그인하려면 아래 버튼을 눌러주세요.</p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" id="google-next-btn-kds">계속</button>
+                </form>
+            </div>
+        {% elif provider.name == "Kakao" %}
+            <div class="kakao-login-form-kds">
+                <h2><span class="kakao-name-kds">{{ provider.name }}</span> 를 통한 로그인</h2>
+                <p>소셜 {{ provider.name }} 계정을 사용하여 로그인하려면 아래 버튼을 눌러주세요.</p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" id="kakao-next-btn-kds">계속</button>
+                </form>
+            </div>
+        {% elif provider.name == "Naver" %}
+            <div class="naver-login-form-kds">
+                <h2><span class="naver-name-kds">{{ provider.name }}</span> 를 통한 로그인</h2>
+                <p>소셜 {{ provider.name }} 계정을 사용하여 로그인하려면 아래 버튼을 눌러주세요.</p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" id="naver-next-btn-kds">계속</button>
+                </form>
+            </div>
+        {% else %}
+            <p style="font-size:50px; color:red; font-weight: bold;">삐빅 잘못된 요청입니다!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
