@@ -23,13 +23,12 @@
                         {% endif %}
                     </span>
 
-                    <a href="{% url 'game_detail' defense.game_object.id %}" class="game-info-btn-kds">
-                        {% if defense.user_can_counter %}
-                            반격하기
-                        {% else %}
-                            게임 정보
-                        {% endif %}
-                    </a>
+                    {% if defense.user_can_counter %}
+                        <a href="{% url 'counter_attack' defense.game_object.id %}" class="game-info-btn-kds">반격하기</a>
+                    {% else %}
+                        <a href="{% url 'game_detail' defense.game_object.id %}" class="game-info-btn-kds">게임 정보</a>
+                    {% endif %}
+
                 </li>
             {% empty %}
                 <li class="game-history-item-kds">받은 공격이 없습니다.</li>
