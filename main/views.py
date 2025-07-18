@@ -163,9 +163,22 @@ def cancel_game_view(request, game_id):
   
 # 랭킹 확인 뷰
 @login_required
+@login_required
 def ranking_view(request):
     users = User.objects.order_by('-total_score')[:3]
-    for user in users:
-        user.bar_height = 80 + max(user.total_score, 0) 
+    
+    if users:
+        max_score = max(user.total_score for user in users)
+        min_score = min(user.total_score for user in users)
+        score_range = max_score - min_score if max_score != min_score else 1  # 나눗셈 방지
+
+        for user in users:
+            normalized = (user.total_score - min_score) / score_range
+            user.bar_height = int(80 + normalized * 120)  # 최소 80 ~ 최대 200 범위
+    else:
+        for user in users:
+            user.bar_height = 100
+
     return render(request, 'ranking.html', {'top_users': users})
+
 

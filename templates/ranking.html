@@ -1,37 +1,94 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block head_title %}랭킹 보기 | Piro Card Game{% endblock %}
+{% block head_title %}명예의 전당 | Piro Card Game{% endblock %}
 {% block extra_head %}
-<link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
-<link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
+<link rel="stylesheet" href="{% static 'css/start_game.css' %}">
+<link rel="stylesheet" href="{% static 'css/start_game.css' %}">
+<style>
+  .ranking-bar-container-sje {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    height: 200px;
+    margin-top: 30px;
+  }
+
+  .ranking-bar-sje {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .ranking-bar-sje:nth-child(1) {
+    background-color: #f1a89d;
+  }
+
+  .ranking-bar-sje:nth-child(2) {
+    background-color: #f4b78f;
+  }
+
+  .ranking-bar-sje:nth-child(3) {
+    background-color: #f6cb7b;
+  }
+
+  .rank-number-sje {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1.7rem;
+    color: white;
+  }
+
+  .user-label-sje {
+    position: absolute;
+    top: -50px;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+
+  }
+
+  .user-label-sje .username-sje {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .user-label-sje .score-sje {
+    font-size: 0.9rem;
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="container-lsy">
-  <div class="card-lsy">
-    <div class="card-body-lsy ranking-body-sje">
-      <h3 class="card-title-lsy">Piro 명예의 전당</h3>
-      <hr class="divider-lsy">
+<div class="start-game-container-kds">
+  <div class="start-game-box-kds">
+    <h2 class="start-game-title-kds">🏆 Piro 명예의 전당 🏆</h2>
 
-      <div class="ranking-bar-container-sje">
-        {% for user in top_users %}
-          <div class="ranking-bar-sje" style="height: {{ user.bar_height }}px;">
-            <span class="rank-number-sje">{{ forloop.counter }}</span>
-            <div class="user-label-sje">
-              <span class="username-sje">{{ user.username }}</span>
-              <span class="score-sje">{{ user.total_score }}</span>
-            </div>
+    <div class="ranking-bar-container-sje">
+      {% for user in top_users %}
+        <div class="ranking-bar-sje" style="height: {{ user.bar_height }}px;">
+          <span class="rank-number-sje">{{ forloop.counter }}</span>
+          <div class="user-label-sje">
+            <div class="username-sje">{{ user.username }}</div>
+            <div class="score-sje">{{ user.total_score }}</div>
           </div>
-        {% empty %}
-          <p>랭킹 정보가 없습니다.</p>
-        {% endfor %}
-      </div>
-
-      <div style="margin-top: 30px;">
-        <a href="{% url 'game_list' %}" class="btn-lsy btn-counter-lsy back-btn-sje">전체목록</a>
-      </div>
+        </div>
+      {% endfor %}
     </div>
+
+    <a href="{% url 'game_list' %}">
+      <button class="attack-btn-kds" style="margin-top: 30px;">전체 목록</button>
+    </a>
   </div>
 </div>
 {% endblock %}
+

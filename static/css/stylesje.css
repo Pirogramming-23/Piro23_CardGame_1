@@ -1,99 +1,59 @@
-/* ===== 랭킹 페이지 ===== */
-.ranking-body-sje {
-  text-align: center;
-}
+  .ranking-bar-container-sje {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    height: 200px;
+    margin-top: 30px;
+  }
 
-.ranking-bar-container-sje {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 0;
-  height: 200px;
-  margin-top: 40px;
-}
+  .ranking-bar-sje {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 
-.ranking-bar-sje {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: flex-end;
-  align-self: flex-end;
-  width: 100px;
-  border-radius: 0; 
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
+  .ranking-bar-sje:nth-child(1) {
+    background-color: #f1a89d;
+  }
 
-/* 순위별 색상 차등 */
-.ranking-bar-sje:nth-child(1) {
-  background-color: #f1a89d;
-}
-.ranking-bar-sje:nth-child(2) {
-  background-color: #f4b78f;
-}
-.ranking-bar-sje:nth-child(3) {
-  background-color: #f6cb7b;
-}
+  .ranking-bar-sje:nth-child(2) {
+    background-color: #f4b78f;
+  }
 
-.rank-number-sje {
-  position: absolute;
-  bottom: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  color: white; 
-}
+  .ranking-bar-sje:nth-child(3) {
+    background-color: #f6cb7b;
+  }
 
-.user-label-sje {
-  position: absolute;
-  top: -50px;
-  text-align: center;
-}
+  .rank-number-sje {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1.7rem;
+    color: white;
+  }
 
-.username-sje {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 4px;
-  font-weight: bold;
-  color: #f1a89d;
-}
+  .user-label-sje {
+    position: absolute;
+    top: -50px;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
 
-.score-sje {
-  font-size: 20px;
-  color: #f1a89d;
-}
+  }
 
-.back-btn-sje {
-  background-color: #f1a89d;
-  color: #4e2a6d;
-  border-radius: 8px;
-}
+  .user-label-sje .username-sje {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
 
-
-/* ===== 반격하기 페이지 ===== */
-.counter-body-sje {
-  text-align: left;
-}
-
-.counter-result-sje {
-  text-align: left;
-}
-
-.card-radio-sje {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #f1a89d;
-}
-
-.card-value-sje {
-  margin-left: 8px;
-  font-weight: bold;
-}
-
-.counter-btn-sje {
-  background-color: #f1a89d;
-  color: #4e2a6d;
-  border-radius: 8px;
-}
+  .user-label-sje .score-sje {
+    font-size: 0.9rem;
+  }

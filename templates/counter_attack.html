@@ -3,57 +3,58 @@
 
 {% block head_title %}반격하기 | Piro Card Game{% endblock %}
 {% block extra_head %}
-<link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
-<link rel="stylesheet" href="{% static 'css/stylesje.css' %}">
+<link rel="stylesheet" href="{% static 'css/start_game.css' %}">
+<style>
+  .align-left {
+    text-align: left;
+    width: 100%;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="container-lsy">
-  <div class="card-lsy">
-    <div class="card-body-lsy counter-body-sje">
+<div class="start-game-container-kds">
+  <div class="start-game-box-kds">
+    {% if game.defender_card %}
+      <h2 class="start-game-title-kds">{{ game.attacker.username }} VS {{ game.defender.username }}</h2>
+      <hr style="width: 100%; border: 1px solid var(--orange); margin-bottom: 20px;">
 
-      {% if game.defender_card %}
-        <div class="result-details-lsy counter-result-sje">
-          <h3 class="card-title-lsy">{{ game.attacker_card }} – {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
-          <p class="card-info-lsy">숫자가 작은 사람이 이깁니다.</p>
-          <hr class="divider-lsy">
+      <p class="align-left">숫자가 작은 사람이 이깁니다.</p>
+      <p class="align-left">{{ game.attacker.username }}: {{ game.attacker_card }}</p>
+      <p class="align-left">{{ game.defender.username }}: {{ game.defender_card }}</p>
+      <p class="align-left">
+        결과:
+        {% if game.attacker_card == game.defender_card %}
+          👑 무승부 👑
+        {% elif game.winner == game.defender %}
+          👑 승리 👑
+        {% else %}
+          패배
+        {% endif %}
+      </p>
+      <p class="align-left">점수 {{ game.defender_score_change }}</p>
 
-          <p class="card-info-lsy">{{ game.attacker.username }}: {{ game.attacker_card }}</p>
-          <p class="card-info-lsy">{{ game.defender.username }}: {{ game.defender_card }}</p>
-          <p class="card-info-lsy">
-            결과:
-            {% if game.attacker_card == game.defender_card %}
-              👑 무승부 👑
-            {% elif game.winner == game.defender %}
-              👑 승리 👑
-            {% else %}
-              패배
-            {% endif %}
-          </p>
-          <p class="card-info-lsy">점수 {{ game.defender_score_change }}</p>
+      <a href="{% url 'game_list' %}">
+        <button class="attack-btn-kds" style="margin-top: 30px;">전체 목록</button>
+      </a>
+      
+    {% else %}
+      <h2 class="start-game-title-kds">반격할 카드:</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="card-list-kds">
+          {% for card in card_choices %}
+            <label class="card-radio-kds">
+              <input type="radio" name="selected_card" value="{{ card }}" required>
+              <span>{{ card }}</span>
+            </label>
+          {% endfor %}
         </div>
-        <div class="button-group-lsy">
-          <a href="{% url 'game_list' %}" class="btn-lsy btn-counter-lsy back-btn-sje">전체목록</a>
-        </div>
-      {% else %}
-        <h3 class="card-title-lsy">반격할 카드 :</h3>
-        <hr class="divider-lsy">
-        <form method="post" class="counter-form-lsy">
-          {% csrf_token %}
-          <div class="card-list-lsy">
-            {% for card in card_choices %}
-              <label class="card-radio-lsy card-radio-sje">
-                <input type="radio" name="selected_card" value="{{ card }}" required>
-                <span class="card-value-sje">{{ card }}</span>
-              </label>
-            {% endfor %}
-          </div>
-          <button type="submit" class="btn-lsy btn-counter-lsy counter-btn-sje">CounterAttack</button>
-        </form>
-      {% endif %}
-
-    </div>
+        <button type="submit" class="attack-btn-kds" style="margin-top: 20px;">Counter Attack</button>
+      </form>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
-
