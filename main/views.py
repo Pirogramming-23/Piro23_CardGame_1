@@ -143,7 +143,7 @@ def game_detail_view(request, game_id):
     user_can_cancel = game.can_cancel(request.user)
     user_can_counter = game.can_counter(request.user) # [추가]
 
-    context = {SS
+    context = {
         'game': game,
         'is_attacker': is_attacker,
         'user_can_cancel': user_can_cancel,
