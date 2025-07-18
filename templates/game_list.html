@@ -25,9 +25,8 @@
 
                     {% if defense.user_can_counter %}
                         <a href="{% url 'counter_attack' defense.game_object.id %}" class="game-info-btn-kds">반격하기</a>
-                    {% else %}
-                        <a href="{% url 'game_detail' defense.game_object.id %}" class="game-info-btn-kds">게임 정보</a>
                     {% endif %}
+                    <a href="{% url 'game_detail' defense.game_object.id %}" class="game-info-btn-kds">게임 정보</a>
 
                 </li>
             {% empty %}

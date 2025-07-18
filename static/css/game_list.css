@@ -21,7 +21,7 @@
 }
 
 .game-history-title-kds {
-    color: black;
+    color: var(--purple);
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -32,6 +32,9 @@
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 18px;
+    width: 100%;
+    border-top: 3px solid var(--purple);
+    padding-top: 8px;
 }
 
 .game-history-list-kds {
@@ -61,6 +64,7 @@
 .game-vs-kds {
     font-size: 1.1rem;
     color: var(--orange);
+    font-weight: bold;
 }
 
 .game-detail-kds {
@@ -78,11 +82,10 @@
     color: var(--purple);
     font-size: 1.3rem;
     font-weight: bold;
-    margin-bottom: 18px;
+    margin-bottom: 45px;
     border-bottom: 3px solid var(--purple);
     padding-bottom: 8px;
     width: 100%;
-    text-align: center;
 }
 
 .game-detail-list-kds {
