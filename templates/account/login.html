@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% load account %}
+
+{% block head_title %}로그인{% endblock %}
+
+{% block content %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const usernameInput = document.getElementById('id_login') || document.getElementById('id_username');
+        const rememberCheckbox = document.getElementById('id_remember');
+
+        // localStorage에서 아이디 불러오기
+        const savedId = localStorage.getItem('saved_id');
+        if (savedId && usernameInput && rememberCheckbox) {
+            usernameInput.value = savedId;
+            rememberCheckbox.checked = true;
+        }
+
+        // 폼 제출 시 저장 여부 처리
+        const loginForm = document.getElementById('login-form-inner-kds');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function () {
+                if (rememberCheckbox && rememberCheckbox.checked && usernameInput) {
+                    localStorage.setItem('saved_id', usernameInput.value);
+                } else {
+                    localStorage.removeItem('saved_id');
+                }
+            });
+        }
+    });
+</script>
+
+<div class="container-kds">
+    <div class="login-form-kds">
+        <h2>로그인</h2>
+
+        <div class="login-form-bottom-kds">
+            <form method="post" action="{% url 'account_login' %}" id="login-form-inner-kds">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">로그인</button>
+            </form>
+
+            <hr>
+
+            <div class="social-login-container-kds">
+                <h3>소셜 로그인</h3><br>
+                <a href="{% provider_login_url 'google' %}">구글로 로그인</a><br>
+                <a href="{% provider_login_url 'kakao' %}">카카오로 로그인</a><br>
+                <a href="{% provider_login_url 'naver' %}">네이버로 로그인</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

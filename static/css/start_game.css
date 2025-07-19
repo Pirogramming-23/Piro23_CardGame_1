@@ -1,0 +1,83 @@
+.start-game-container-kds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.start-game-box-kds {
+    background-color: var(--purple);
+    border-radius: 20px;
+    box-shadow: 6px 6px 0px 0px #00000055;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 350px;
+}
+
+.start-game-title-kds {
+    color: var(--orange);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card-list-kds {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-radio-kds {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-radio-kds input[type="radio"] {
+    accent-color: var(--orange);
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-block !important;
+    opacity: 1 !important;
+    position: static !important;
+    cursor: pointer;
+}
+
+.defender-select-kds {
+    margin-bottom: 20px;
+    color: var(--orange);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.defender-select-kds select {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+.attack-btn-kds {
+    background-color: var(--orange);
+    color: var(--purple);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.attack-btn-kds:hover {
+    background-color: #ffb84d;
+}

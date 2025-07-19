@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}게임 리스트 | Piro Card Game{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/game_list.css' %}">
+{% endblock %}
+{% block content %}
+<div class="game-list-container-kds">
+
+    <div class="game-history-kds">
+        <h3 class="game-history-title-kds">내가 받은 공격</h3>
+        <div class="current-player-kds">현재 플레이어 : <b>{{ user.username }}</b></div>
+        <ul class="game-history-list-kds">
+            {% for defense in my_defenses %}
+                <li class="game-history-item-kds">
+                    <span class="game-vs-kds">{{ defense.game_object.attacker.username }} VS {{ defense.game_object.defender.username }}</span>
+                    
+                    <span class="game-status-kds">
+                        {% if defense.user_can_counter %}
+                            도전 도착!
+                        {% else %}
+                            {{ defense.game_object.get_result_summary }}
+                        {% endif %}
+                    </span>
+
+                    {% if defense.user_can_counter %}
+                        <a href="{% url 'counter_attack' defense.game_object.id %}" class="game-info-btn-kds">반격하기</a>
+                    {% endif %}
+                    <a href="{% url 'game_detail' defense.game_object.id %}" class="game-info-btn-kds">게임 정보</a>
+
+                </li>
+            {% empty %}
+                <li class="game-history-item-kds">받은 공격이 없습니다.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="game-detail-kds">
+        <div class="counterattack-header-kds">내가 한 공격</div>
+        <ul class="game-detail-list-kds">
+            {% for game in my_attacks %}
+                <li class="game-detail-item-kds">
+                    <span class="game-vs-kds">{{ game.attacker.username }} VS {{ game.defender.username }}</span>
+                    <span class="game-status-kds">{{ game.get_result_summary }}</span>
+                    <a href="{% url 'game_detail' game.id %}" class="game-info-btn-kds">게임 정보</a>
+                </li>
+            {% empty %}
+                <li class="game-detail-item-kds">공격한 게임이 없습니다.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

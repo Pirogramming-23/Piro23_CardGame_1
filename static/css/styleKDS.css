@@ -1,0 +1,680 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('/static/images/background.jpg');
+    background-color: #27170a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wrapper-kds {
+    min-height: 100%;
+}
+
+.headnav-kds {
+    display: flex;
+    background-color: var(--purple);
+    justify-content: space-between;
+    padding: 20px 80px 20px 80px;
+}
+
+.left-nav-kds > a {
+    color: var(--orange);
+    font-size: var(--font-lg);
+    font-weight: bold;
+}
+
+.right-nav-kds {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-xl);
+}
+
+.right-nav-kds > a {
+    color: var(--orange);
+    font-size: var(--font-md);
+    font-weight: bold;
+}
+
+.container-kds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.logout-form-kds {
+    background-color: var(--purple);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-height: 500px;
+    margin: 50px 50px 50px 50px;
+    padding: 30px;
+    gap: var(--gap-md);
+    border-radius: 20px;
+}
+
+.logout-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    color: var(--orange);
+}
+
+.logout-bottom-kds {
+    display: flex;
+    gap: var(--gap-md);
+}
+
+#logout-btn-kds {
+    display: flex;
+    background-color: var(--orange);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logout-btn-kds > button {
+    color: black;
+    font-weight: bold;
+    font-size: var(--font-md);
+}
+
+.logout-bottom-kds > p {
+    background-color: var(--orange);
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-bottom-kds > p > a {
+    font-size: var(--font-md);
+}
+
+.login-form-kds {
+    display: flex;
+    flex-flow: column;
+    background-color: var(--purple);
+    margin-top: 50px;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+.login-form-kds > h2 {
+    color: var(--orange);
+    font-size: var(--font-xl);
+    font-weight: bold;
+}
+
+.login-form-bottom-kds {
+    background-color: var(--orange);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+#login-form-inner-kds {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-md);
+}
+
+#login-form-inner-kds > p {
+    display: flex;
+    width: 100%;
+    gap: var(--gap-sm);
+}
+
+.helptext > a {
+    color: black;
+    text-decoration: none;
+}
+
+.helptext > a:hover {
+    text-decoration: underline;
+}
+
+#id_remember {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#id_remember:checked {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+#login-form-inner-kds > p:nth-child(4) {
+    display: flex;
+    align-items: center;
+}
+
+#login-form-inner-kds > button {
+    font-size: var(--font-md);
+    background-color: var(--purple);
+    border-radius: 10px;
+    width: 100px;
+    color: var(--orange);
+    font-weight: bold;
+    padding: 10px;
+    transition: 0.2s ease;
+}
+
+#login-form-inner-kds > button:hover {
+    background-color: #4a2852;
+}
+
+.social-login-container-kds {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    border: 3px solid var(--purple);
+}
+
+.social-login-container-kds > h3 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: var(--font-md);
+    font-weight: bold;
+    color: black;
+}
+
+.social-login-container-kds > h3::after {
+    content: "";
+    width: 300px;
+    height: 3px;
+    background-color: var(--purple);
+    margin-top: 10px;
+}
+
+.social-login-container-kds > a {
+    text-decoration: none;
+    color: black;
+}
+
+.social-login-container-kds > a:visited {
+    color: black
+}
+
+.social-login-container-kds > a:hover {
+    text-decoration: underline;
+}
+
+.home-container-kds {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-xl);
+    justify-content: center;
+    align-items: center;
+    margin-top: 230px;
+}
+
+.home-title-kds {
+    font-size: 60px;
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.start-btn-kds {
+    background-color: var(--purple);
+    padding: 10px;
+    font-size: var(--font-xl);
+    color: var(--orange);
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.start-btn-kds:hover {
+    background-color: var(--deep-purple);
+}
+
+.footer-kds {
+    background-color: var(--purple);
+    width: 100%;
+    padding: 20px 50px 20px 80px;
+    height: var(--HeadFoot-height);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.our-identity-kds {
+    color: var(--orange);
+    font-size: var(--font-lg);
+    font-weight: bold;
+}
+
+#socialaccount-login-next {
+    color: var(--purple);
+    background-color: var(--orange);
+    font-size: var(--font-md);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.google-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: blue 4px solid;
+    min-height: 400px;
+}
+
+.google-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.google-name-kds {
+    color: blue;
+}
+
+.google-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#google-next-btn-kds {
+    color: white;
+    background-color: blue;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#google-next-btn-kds:hover {
+    color: white;
+    background-color: navy;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+.kakao-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: yellow;
+    border: brown 4px solid;
+    min-height: 400px;
+}
+
+.kakao-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.kakao-name-kds {
+    color: brown;
+}
+
+.kakao-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#kakao-next-btn-kds {
+    color: white;
+    background-color: brown;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#kakao-next-btn-kds:hover {
+    background-color: rgb(110, 28, 28);
+    transform: scale(1.1);
+}
+
+
+
+
+
+.naver-login-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: #03c75a 4px solid;
+    min-height: 400px;
+}
+
+.naver-login-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #03c75a;
+    color: #03c75a;
+}
+
+.naver-name-kds {
+    color: #03c75a;
+}
+
+.naver-login-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+}
+
+#naver-next-btn-kds {
+    color: white;
+    background-color: #03c75a;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#naver-next-btn-kds:hover {
+    background-color: #17b75e;
+    transform: scale(1.1);
+}
+
+.center-align-wrapper-kds {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+.kakao-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: yellow;
+    border: brown 4px solid;
+    min-height: 400px;
+}
+
+.kakao-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.kakao-name-kds {
+    color: brown;
+}
+
+.kakao-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#kakao-signup-btn-kds {
+    color: white;
+    background-color: brown;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#kakao-signup-btn-kds:hover {
+    background-color: rgb(110, 28, 28);
+    transform: scale(1.1);
+}
+
+.kakao-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}
+
+.kakao-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.kakao-signup-form-kds > form label {
+    color: black;
+}
+
+#id_email_error {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.naver-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: #03c75a 5px solid;
+    min-height: 400px;
+}
+
+.naver-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.naver-name-kds {
+    color: #03c75a;
+}
+
+.naver-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#naver-signup-btn-kds {
+    color: white;
+    background-color: #03c75a;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#naver-signup-btn-kds:hover {
+    background-color: #17b75e;
+    transform: scale(1.1);
+}
+
+.naver-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.naver-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.naver-signup-form-kds > form label {
+    color: black;
+}
+
+
+
+
+
+
+
+.google-signup-form-kds {
+    display: flex;
+    flex-flow: column;
+    padding: 40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: blue 5px solid;
+    min-height: 400px;
+}
+
+.google-signup-form-kds > h2 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.google-name-kds {
+    color: blue;
+}
+
+.google-signup-form-kds > p {
+    color: black;
+    font-size: var(--font-md);
+    line-height: 30px;
+    text-align: center;
+}
+
+#google-signup-btn-kds {
+    color: white;
+    background-color: blue;
+    font-size: var(--font-md);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    width: 230px;
+}
+
+#google-signup-btn-kds:hover {
+    background-color: navy;
+    transform: scale(1.1);
+}
+
+.google-signup-form-kds > form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.google-signup-form-kds > form p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.google-signup-form-kds > form label {
+    color: black;
+}
+
+.errorlist {
+    color: black;
+    font-weight: bold;
+}

@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -27,10 +27,28 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
+    # 기본 앱 추가 - 김동수
+    'django.contrib.sites',
+
+    # allauth 필수 앱 추가 - 김동수
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # 소셜 로그인 제공자 추가 - 김동수
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.naver',
+
+    # 유저 앱 추가 - 김동수
+    'User',
+
+    # 기존 main 앱 유지
+    'main',
+
+    #여기부터 장고 기본 앱
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware', #로그인용 미들웨어 추가 - 김동수
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -54,7 +73,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,13 +84,12 @@ TEMPLATES = [
         },
     },
 ]
+print(BASE_DIR / 'templates')
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -79,10 +97,8 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -98,25 +114,72 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'User.CustomUser' # 사용자 모델 지정했습니다! - 김동수
+
+# 사용자 인증 관련 설정 추가 - 김동수
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 2 # 소셜 로그인 구현을 위해 ID 부여해둠
+
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/' #로그인 리다이렉트 추가
+LOGOUT_REDIRECT_URL = '/'
+
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+ACCOUNT_LOGIN_METHODS = {'email', 'username'}  # 이메일 또는 유저네임으로 로그인
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#소셜 로그인 제공자
+from decouple import config
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': config('SOCIAL_GOOGLE_CLIENT_ID'),
+            'secret': config('SOCIAL_GOOGLE_SECRET'),
+            'key': ''
+        }
+    },
+    'kakao': {
+        'APP': {
+            'client_id': config('SOCIAL_KAKAO_CLIENT_ID'),
+            'secret': '',
+            'key': ''
+        },
+        'AUTH_PARAMS': {
+            'prompt': 'login'  # ⭐️ 매번 로그인 강제!
+        }
+    },
+    'naver': {
+        'APP': {
+            'client_id': config('SOCIAL_NAVER_CLIENT_ID'),
+            'secret': config('SOCIAL_NAVER_SECRET'),
+            'key': ''
+        },
+        'AUTH_PARAMS': {
+            'auth_type': 'reauthenticate'
+        }
+    }
+}

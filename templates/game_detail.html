@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}게임 정보 | Piro Card Game{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/game_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-lsy">
+    <div class="card-lsy">
+        <div class="card-body-lsy">
+
+            <!-- 게임 참여자 -->
+            <h3 class="card-title-lsy">{{ game.id }} - {{ game.attacker.username }} VS {{ game.defender.username }}</h3>
+
+            <hr class="divider-lsy">
+
+            <!-- 게임 상태에 따라 다른 내용 표시 -->
+            {% if game.status == 'PENDING' %}
+                <!-- ==================== 수정된 부분 시작 ==================== -->
+                <p class="status-text-lsy">진행중..</p>
+
+                <!-- 현재 로그인한 유저가 공격자인 경우 -->
+                {% if user == game.attacker %}
+                    <p class="card-info-lsy">내가 낸 카드: {{ game.attacker_card }}</p>
+                    <p class="card-info-lsy">상대: (응답 대기중)</p>
+                
+                <!-- 현재 로그인한 유저가 수비자인 경우 -->
+                {% elif user == game.defender %}
+                    <p class="card-info-lsy">상대가 건 게임입니다.</p>
+                    <p class="card-info-lsy">내가 낼 카드: (아직 선택 안 함)</p>
+                {% endif %}
+                <!-- ==================== 수정된 부분 끝 ==================== -->
+
+                <div class="button-group-lsy">
+                    <!-- 공격자이고, 취소가 가능할 때만 '게임 취소' 버튼 표시 -->
+                    {% if user_can_cancel %}
+                        <a href="{% url 'cancel_game' game.id %}" class="btn-lsy btn-cancel-lsy">게임 취소</a>
+                    {% endif %}
+                    <!-- 수비자이고, 반격이 가능할 때만 '반격하기' 버튼 표시 -->
+                    {% if user_can_counter %}
+                         <a href="{% url 'counter_attack' game.id %}" class="btn-lsy btn-counter-lsy">대응하기</a>
+                    {% endif %}
+                    <a href="{% url 'game_list' %}" class="btn-lsy btn-list-lsy">전체 목록</a>
+                </div>
+
+            {% else %}
+                <!-- fix 김하윤 : 종료된 게임 기능 완성 -->
+                {% if game.win_condition %}
+                    <p class="card-info-lsy" style="text-align: center; border: none;">
+                        {% if game.win_condition == 'BIG' %}
+                            숫자가 큰 사람이 이깁니다.
+                        {% else %}
+                            숫자가 작은 사람이 이깁니다.
+                        {% endif %}
+                    </p>
+                {% endif %}
+                
+
+                <p class="card-info-lsy">{{ game.attacker.username }} : {{ game.attacker_card }}</p>
+                <p class="card-info-lsy">{{ game.defender.username }} : {{ game.defender_card }}</p>
+
+                <hr class="divider-lsy">
+
+                <p class="card-info-lsy">결과 :
+                    {% if game.is_draw %}
+                        무승부
+                    {% elif game.winner == user %}
+                        승리
+                    {% else %}
+                        패배
+                    {% endif %}
+                </p>
+                
+                <p class="card-info-lsy">점수 :
+                    {% if game.is_draw %}
+                        0
+                    {% elif user == game.attacker %}
+                        {{ game.attacker_score_change }}
+                    {% else %}
+                        {{ game.defender_score_change }}
+                    {% endif %}
+                </p>
+
+                <div class="button-group-lsy" style="margin-top: 20px;">
+                    <a href="{% url 'game_list' %}" class="btn-lsy btn-list-lsy">전적 목록</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

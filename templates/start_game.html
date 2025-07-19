@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}공격하기 | Piro Card Game{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/start_game.css' %}">
+{% endblock %}
+{% block content %}
+<div class="start-game-container-kds">
+    <div class="start-game-box-kds">
+        <h2 class="start-game-title-kds">내가 고른 카드 :</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="card-list-kds">
+                {% for card in card_choices %}
+                    <label class="card-radio-kds">
+                        <input type="radio" name="selected_card" value="{{ card }}" required>
+                        <span>{{card}}</span>
+                    </label>
+                {% endfor %}
+            </div>
+            <div class="defender-select-kds">
+                <label for="defender">Defender:</label>
+                <select name="defender" id="defender" required>
+                    {% for defender in defenders %}
+                        <option value="{{ defender.id }}">{{ defender.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="attack-btn-kds" type="submit">Attack!</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

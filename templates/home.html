@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% load account %}
+
+{% block content %}
+<div class="home-container-kds">
+    <p class="home-title-kds">Piro Game</p>
+    {% if user.is_authenticated %}
+        <p class="login-info-kds"><b>{{ user.username }}</b>님이 로그인 중</p>
+        <div style="display: flex; gap: 20px;">
+            <form action="{% url 'start_game' %}" method="get">
+                <button class="start-btn-kds" type="submit">start</button>
+            </form>
+            <form action="{% url 'game_list' %}" method="get">
+                <button class="start-btn-kds" type="submit">list</button>
+            </form>
+        </div>
+    {% else %}
+        <form action="{% url 'account_login' %}" method="get">
+            <button class="start-btn-kds" type="submit">start</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

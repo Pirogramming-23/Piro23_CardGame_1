@@ -1,0 +1,59 @@
+  .ranking-bar-container-sje {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    height: 200px;
+    margin-top: 30px;
+  }
+
+  .ranking-bar-sje {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .ranking-bar-sje:nth-child(1) {
+    background-color: #f1a89d;
+  }
+
+  .ranking-bar-sje:nth-child(2) {
+    background-color: #f4b78f;
+  }
+
+  .ranking-bar-sje:nth-child(3) {
+    background-color: #f6cb7b;
+  }
+
+  .rank-number-sje {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1.7rem;
+    color: white;
+  }
+
+  .user-label-sje {
+    position: absolute;
+    top: -50px;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+
+  }
+
+  .user-label-sje .username-sje {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .user-label-sje .score-sje {
+    font-size: 0.9rem;
+  }
